@@ -6,17 +6,25 @@ export const metadata = {
   title: "Home",
 };
 
-async function getBillionaries() {
+interface Billionaire {
+  id: string;
+  name: string;
+  squareImage: string;
+  netWorth: string;
+  industries: string[];
+}
+
+async function getBillionaries(): Promise<Billionaire[]> {
   const response = await fetch(API_URL);
   const json = await response.json();
   return json;
 }
 
 export default async function HomePage() {
-  const billionaires = await getBillionaries();
+  const billionaires: Billionaire[] = await getBillionaries();
   return (
     <div className={styles.container}>
-      {billionaires.map((billionaire) => (
+      {billionaires.map((billionaire: Billionaire) => (
         <Billionaries
           key={billionaire.id}
           id={billionaire.id}
