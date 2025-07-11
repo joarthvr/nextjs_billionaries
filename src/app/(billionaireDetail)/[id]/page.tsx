@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { API_URL } from "../../constants";
-import styles from "../styles/billionaireDetail.module.css";
+import styles from "../../styles/billionaireDetail.module.css";
 
 type PageProps = {
   params: Promise<{ id: string }>;
