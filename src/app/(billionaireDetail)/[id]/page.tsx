@@ -1,12 +1,11 @@
-import { API_URL } from "../../constants";
 import Image from "next/image";
+import { API_URL } from "../../constants";
 import styles from "../styles/billionaireDetail.module.css";
 
-interface BillionaireDetailProps {
-  params: Promise<{
-    id: string;
-  }>;
-}
+type PageProps = {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
 interface FinancialAsset {
   exchange: string;
@@ -61,9 +60,7 @@ function formatNetWorth(netWorth: number): string {
   return `$${billions.toFixed(1)}B`;
 }
 
-export default async function BillionaireDetail({
-  params,
-}: BillionaireDetailProps) {
+export default async function BillionaireDetail({ params }: PageProps) {
   const { id } = await params;
   const billionaire = await getBillionaire(id);
 
