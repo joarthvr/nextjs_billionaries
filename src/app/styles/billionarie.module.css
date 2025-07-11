@@ -1,0 +1,52 @@
+.billionaire {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.billionaire:hover {
+  transform: translateY(-4px);
+}
+
+.billionaire > a {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  width: 100%;
+}
+
+.billionaire h2 {
+  margin: 0 0 12px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.billionaire img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.billionaire img:hover {
+  opacity: 1;
+}
+
+.info {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.industries {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #888;
+}
