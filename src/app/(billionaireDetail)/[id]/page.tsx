@@ -1,11 +1,11 @@
 import { API_URL } from "../../constants";
 import Image from "next/image";
-import styles from "../../styles/billionaireDetail.module.css";
+import styles from "../styles/billionaireDetail.module.css";
 
 interface BillionaireDetailProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 interface FinancialAsset {
@@ -64,7 +64,8 @@ function formatNetWorth(netWorth: number): string {
 export default async function BillionaireDetail({
   params,
 }: BillionaireDetailProps) {
-  const billionaire = await getBillionaire(params.id);
+  const { id } = await params;
+  const billionaire = await getBillionaire(id);
 
   return (
     <div className={styles.container}>
